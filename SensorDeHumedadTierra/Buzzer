@@ -1,23 +1,24 @@
+//declaramos variables
 const int sensorH1 = 9;
 const int ledPin = 2;
-int buzzer = A1;//agregar
+int buzzer = A1; //agregar al pin analogico
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(sensorH1, INPUT_PULLUP);
-  pinMode(ledPin, OUTPUT);
-  pinMode(buzzer, OUTPUT);//agregar
+  pinMode(sensorH1, INPUT_PULLUP); //dato de entrada
+  pinMode(ledPin, OUTPUT); //dato de salida
+  pinMode(buzzer, OUTPUT);//agregar //dato de salida
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int estadoP1 = digitalRead(sensorH1);
+  int estadoP1 = digitalRead(sensorH1); //estado del sensor
 
-  if(estadoP1 == LOW){
-    digitalWrite(ledPin, HIGH);
-    noTone(buzzer);//agregar
-  }else{
-    digitalWrite(ledPin,LOW);
-    tone(buzzer, 600);//agregar
+  if(estadoP1 == LOW){ //si el sensor detecta señal baja
+    digitalWrite(ledPin, HIGH); //se prende el led
+    noTone(buzzer); //se apaga el sonido del buzzer
+  }else{            //por el contrario si detecta señal alta 
+    digitalWrite(ledPin,LOW); //se aaga el led
+    tone(buzzer, 600); //emite sonido el buzzer
   }
 }
